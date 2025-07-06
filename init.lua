@@ -60,14 +60,26 @@ local plugins = {
 
     end,
   },
-    {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
-    dependencies = { 'nvim-lua/plenary.nvim' }
-    }
+  {
+      'nvim-telescope/telescope.nvim', tag = '0.1.8',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
+      "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"
+  }
 }
 
 require("lazy").setup(plugins, opt)
+
 local builtin = require("telescope.builtin")
+local treesitter_config = require("nvim-treesitter.configs")
+treesitter_config.setup({
+    ensure_installed = {"lua", "odin", "swift"},
+    highlight = { enable = true },
+    indent = { enable = true },
+})
+
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {}) 
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {}) 
 
