@@ -4,6 +4,7 @@ return {
         local treesitter_config = require("nvim-treesitter.configs")
         treesitter_config.setup({
             ensure_installed = {"lua", "odin", "swift"},
+            auto_install = true,
             highlight = { enable = true },
             indent = { enable = true },
         })
