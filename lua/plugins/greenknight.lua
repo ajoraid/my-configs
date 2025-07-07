@@ -6,7 +6,8 @@ return  {
         local accent2 = "#0D2525" -- highlight
 
         local text = "#abb2bf"
-        local dark_text = "#3E4451" -- comments, line numbers
+        local comment_color = "#48955D"
+        local line_num_color = "#3E4451"
 
         local keyword = "#8F939A"
         local func = "#B6AB8B"
@@ -19,8 +20,8 @@ return  {
             base00 = bg,
             base01 = accent,
             base02 = accent2,
-            base03 = dark_text,
-            base04 = dark_text,
+            base03 = comment_color,
+            base04 = line_num_color,
             base05 = text,
             base06 = for_tesing,
             base07 = for_tesing,
@@ -35,4 +36,3 @@ return  {
         })
     end,
 }
-
