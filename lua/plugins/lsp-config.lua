@@ -18,6 +18,11 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({})
+            vim.diagnostic.config({
+                virtual_text = false,
+                signs = false,
+                underline = false
+            })
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
