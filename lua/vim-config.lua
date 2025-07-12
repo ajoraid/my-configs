@@ -3,7 +3,7 @@ vim.cmd("set tabstop=4")
 vim.cmd("set expandtab")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
-vim.api.nvim_create_user_command("Make", function(opts)
+vim.api.nvim_create_user_command("Odin", function(opts)
   local cmd = "odin run"
   local args = vim.split(opts.args, " ")
 
