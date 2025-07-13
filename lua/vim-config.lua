@@ -20,4 +20,7 @@ vim.api.nvim_create_user_command("Odin", function(opts)
 end, { nargs = "*" })
 vim.opt.makeprg = ""
 vim.opt.fillchars = { eob = " " }
+vim.opt.textwidth = 80
+-- considering the below later..
+-- vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
