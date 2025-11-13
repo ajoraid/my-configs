@@ -14,7 +14,7 @@ return {
         },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ols" }
+                ensure_installed = { "lua_ls", "ols", "clangd" }
             })
         end
     },
@@ -48,6 +48,7 @@ return {
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+            vim.keymap.set('n', '<Leader>gb', '<C-o>')
             vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
             vim.keymap.set('n', '<leader>fo', function()
                 vim.lsp.buf.format { async = true }
