@@ -6,6 +6,10 @@ return {
         vim.g.gruvbox_contrast_dark = "medium"
         vim.opt.background = "dark"
         vim.cmd("colorscheme gruvbox")
+        vim.cmd([[
+            highlight StatusLine guifg=#a89984 guibg=#282828 gui=NONE
+            highlight StatusLineNC guifg=#3c3836 guibg=#a89984 gui=NONE
+        ]])
 
         local green_functions = { "@function", "@function.call", "@function.method", "@function.method.call", "@function.builtin", "@method", "@method.call" }
         for _, group in ipairs(green_functions) do
