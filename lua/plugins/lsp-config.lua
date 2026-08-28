@@ -41,11 +41,21 @@ return {
             lspconfig.sourcekit.setup({
                 capabilities = capabilities
             })
-            vim.diagnostic.config({
-                virtual_text = true,
-                signs = false,
-                underline = false
-            })
+            local show_warnings = false
+            local function apply_diagnostics()
+                vim.diagnostic.config({
+                    virtual_text = show_warnings and true or { severity = vim.diagnostic.severity.ERROR },
+                    signs = false,
+                    underline = false,
+                })
+            end
+            apply_diagnostics()
+
+            vim.api.nvim_create_user_command("Warnings", function()
+                show_warnings = not show_warnings
+                apply_diagnostics()
+            end, {})
+            vim.cmd("cabbrev warnings Warnings")
 
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
