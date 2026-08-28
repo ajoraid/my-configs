@@ -38,8 +38,9 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = capabilities
             })
-
-            lspconfig.lua_ls.setup({})
+            lspconfig.sourcekit.setup({
+                capabilities = capabilities
+            })
             vim.diagnostic.config({
                 virtual_text = true,
                 signs = false,
