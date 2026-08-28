@@ -37,7 +37,26 @@ return {
         }, {
           { name = "buffer" },
         }),
+        completion = { autocomplete = false },
+        performance = { max_view_entries = 5 },
       })
+
+      local function set_suggestions(on)
+        cmp.setup({
+          completion = {
+            autocomplete = on and { "InsertEnter", "TextChanged" } or false,
+          },
+        })
+      end
+
+      vim.keymap.set("n", "<leader>su", function()
+        set_suggestions(true)
+      end, { desc = "Show suggestions" })
+
+      vim.keymap.set("n", "<leader>hu", function()
+        set_suggestions(false)
+        cmp.close()
+      end, { desc = "Hide suggestions" })
     end,
   },
 }
