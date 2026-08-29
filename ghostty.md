@@ -1,10 +1,10 @@
 # Ghostty Config
 
 ```
+theme = gruvboxDark
 window-padding-color = background
-title = "nvim"
-theme = vesper
-font-family = "JetBrains Mono Regular"
+title = nvim
+font-family = Fira Mono
 font-size = 14
 font-feature = -ital
 font-feature = liga=0
