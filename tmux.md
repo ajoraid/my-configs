@@ -7,7 +7,7 @@ set -g mouse on
 set -g base-index 1
 set -g pane-base-index 1
 set -g prefix C-a
-set -g status-right "El Psy Kongroo | %Y-%m-%d %H:%M"
+set -g status-right "%Y-%m-%d %H:%M"
 
 # true color
 set -g default-terminal "tmux-256color"
