@@ -12,7 +12,12 @@ return {
             if vim.bo[bufnr].buftype ~= "" or vim.api.nvim_buf_get_name(bufnr) == "" then
                 return false
             end
-            return #conform.list_formatters(bufnr) > 0 or #conform.list_lsp_formatters(bufnr) > 0
+            local formatters = conform.list_formatters(bufnr)
+            if #formatters > 0 then
+                return true
+            end
+            local clients = vim.lsp.get_clients({ bufnr = bufnr, method = "textDocument/formatting" })
+            return #clients > 0
         end
 
         conform.setup({
